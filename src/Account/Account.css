@@ -1,0 +1,57 @@
+.account_wrapper {
+  display: flex;
+  padding: 1rem 2rem;
+  flex-basis: 90%;
+  /* margin: auto; */
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+
+  
+}
+
+.wallet_wrapper {
+  display: flex;
+  flex-basis: 30%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.wallet_box {
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: column;
+  
+}
+
+.wallet_img {
+  display: block;
+  max-width: 6rem;
+  height: auto;
+}
+
+.summ {
+  display: flex;
+  /* flex-basis: 90%; */
+  justify-content: space-between;
+  font-size: 1rem;
+  color: green;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.account_name {
+  font-size: 2rem;
+  line-height: 1.5rem;
+}
+.account_summ {
+  font-size: 1rem;
+  color: green;
+  font-weight: 700;
+  
+}
+
+.arrow_right {
+  width: 1.5rem;
+}

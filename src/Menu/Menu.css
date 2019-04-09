@@ -1,0 +1,12 @@
+.menu {
+  display: flex;
+  flex-basis: 30%;
+  justify-content: space-between;
+}
+
+.menu-item {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
