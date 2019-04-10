@@ -38,5 +38,6 @@
 
 .gategories_list {
   display: flex;
+  width: 100%
 
 }

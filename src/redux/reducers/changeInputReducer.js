@@ -14,13 +14,13 @@ function change (state = {
     case "CATEGORIES": 
       return {...state, categories: action.value};
     
-    // case "CANCEL":
-    //   return {
-    //     summ: '',
-    //     date: '',
-    //     description: '',
-    //     categories: '',
-    //   };
+    case "CLEAR":
+      return {
+        summ: '',
+        date: '',
+        description: '',
+        categories: '',
+      };
     
     default:
       return state;

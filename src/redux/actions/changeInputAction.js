@@ -18,6 +18,10 @@ export const categories = (e) => ({
   value: e.target.value,
 })
 
+export const clear =(change) => ({
+  type: 'CLEAR',
+})
+
 export const cancel = (e,) => ({
-  type: cancel,
+  type: 'CANCEL',
 }) 

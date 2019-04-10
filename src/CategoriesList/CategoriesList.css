@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+}
+
+.list_name {
+  width: 100%;
+  padding: 1rem 2rem 0;
+}
+.list_box {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}

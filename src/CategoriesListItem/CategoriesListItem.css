@@ -1,0 +1,12 @@
+.list_item {
+  display: flex;
+ flex-basis: 100%;
+  justify-content: space-between;
+}
+
+.list_item_title {
+  display: flex;
+  width: 80%;
+}
+
+
