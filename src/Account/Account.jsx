@@ -7,7 +7,7 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import {connect} from 'react-redux';
 import {showModal} from '../redux/actions/showModal';
 
-const Account = ({show, flag}) => {
+const Account = ({show, flag, totalSumm}) => {
   
   return (
     <div>
@@ -15,9 +15,9 @@ const Account = ({show, flag}) => {
     <div className='wallet_wrapper'>
       <img className='wallet_img'  src={wallet} alt="wallet"/>
       <div className='wallet_box'>
-      <p className='account_name'>Wallet</p>
+      <p className='account_name'>Гаманець</p>
       <div className="summ">
-      <p onClick={show} className='account_summ'>5000</p>
+      <p onClick={show} className='account_summ'>{totalSumm}</p>
       <p className='currency_name'>грн</p>
       </div>
       </div>
@@ -33,6 +33,7 @@ const Account = ({show, flag}) => {
 function mapStateToProps (state) {
   return {
     flag: state.showModal,
+    totalSumm: state.totalSumm,
     
   }
 }

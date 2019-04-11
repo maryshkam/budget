@@ -20,8 +20,9 @@ export const categories = (e) => ({
 
 export const clear =(change) => ({
   type: 'CLEAR',
+  value: change,
 })
 
-export const cancel = (e,) => ({
+export const cancel = () => ({
   type: 'CANCEL',
 }) 

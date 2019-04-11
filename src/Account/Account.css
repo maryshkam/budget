@@ -33,6 +33,7 @@
 
 .summ {
   display: flex;
+  min-width: 8rem;
   /* flex-basis: 90%; */
   justify-content: space-between;
   font-size: 1rem;

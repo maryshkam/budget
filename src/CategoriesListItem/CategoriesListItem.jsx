@@ -7,18 +7,23 @@ import {deleteButton} from '../redux/actions/statusButtonAction';
 import {categories} from '../redux/actions/changeInputAction';
 import {editCategory} from '../redux/actions/editCategoryAction';
 import {categoriesEdit} from '../redux/actions/categoriesAction';
+import {categoriesDelete} from '../redux/actions/categoriesAction';
+import {changeCategory} from '../redux/actions/editCategoryAction';
+import {categoriesSave} from '../redux/actions/categoriesAction';
+import {categoriesCancel} from '../redux/actions/categoriesAction';
+
 import './CategoriesListItem.css';
 
-const CategoriesListItem = ({el,change, categories, status, editButton, saveButton, cancelButton, deleteButton, editInput, editCategory, categoriesArr, categoriesEdit}) => {
+const CategoriesListItem = ({el,change, categories, status, editButton, saveButton, cancelButton, deleteButton, editInput, editCategory, categoriesArr, categoriesEdit, categoriesDelete, changeCategory, categoriesSave, categoriesCancel}) => {
   return (
     
 
      
     <div className='list_item'>
       {/* <p className='list_item_title'>{el.title}</p> */}
-      {categoriesArr.statusInput ? <input type='text' name='title' value={editCategory}/> : <p className='list_item_title'>{el.title}</p>}
-      {categoriesArr.statusInput ? <button onClick={saveButton}>{'SAVE'}</button>: <button id={el.id} onClick={(e)=> {categoriesEdit(e,categoriesArr) }}>{'EDIT'}</button>}
-      {status ? <button onClick={cancelButton}>{'CANCEL'}</button>: <button >{'DELETE'}</button>}
+      {el.statusInput ? <input type='text' name='title' onChange={changeCategory}  value={editCategory}/> : <p className='list_item_title'>{el.title}</p>}
+      {el.statusInput ? <button id={el.id} onClick={(e)=> {categoriesSave(e,categoriesArr,editCategory)}}>{'SAVE'}</button>: <button id={el.id} onClick={(e)=> {categoriesEdit(e,categoriesArr); editInput(e,categoriesArr) }}>{'EDIT'}</button>}
+      {el.statusInput ? <button id={el.id} onClick={(e)=> {categoriesCancel(e,categoriesArr)}}>{'CANCEL'}</button>: <button onClick={(e)=> {categoriesDelete(e,categoriesArr)}} id={el.id}>{'DELETE'}</button>}
 
       
     
@@ -58,12 +63,27 @@ return {
   deleteButton: function() {
     dispatch(deleteButton())
   },
-  // editInput: function(e,categoriesArr) {
-  //   dispatch(editCategory(e,categoriesArr))
-  // }
+  editInput: function(e,categoriesArr) {
+    dispatch(editCategory(e,categoriesArr))
+  },
 
   categoriesEdit: function(e,categoriesArr) {
     dispatch(categoriesEdit(e,categoriesArr))
+  },
+
+  changeCategory: function(e,editCategory) {
+    dispatch(changeCategory(e,editCategory))
+  },
+
+  categoriesDelete: function(e,categoriesArr) {
+    dispatch(categoriesDelete(e,categoriesArr))
+  },
+
+  categoriesSave: function(e,categoriesArr,editCategory) {
+    dispatch(categoriesSave(e,categoriesArr,editCategory))
+  },
+  categoriesCancel: function(e,categoriesArr) {
+    dispatch(categoriesCancel(e,categoriesArr))
   }
 
   // add: function(e, change) {
