@@ -21,9 +21,9 @@ const CategoriesListItem = ({el,change, categories, status, editButton, saveButt
      
     <div className='list_item'>
       {/* <p className='list_item_title'>{el.title}</p> */}
-      {el.statusInput ? <input type='text' name='title' onChange={changeCategory}  value={editCategory}/> : <p className='list_item_title'>{el.title}</p>}
-      {el.statusInput ? <button id={el.id} onClick={(e)=> {categoriesSave(e,categoriesArr,editCategory)}}>{'SAVE'}</button>: <button id={el.id} onClick={(e)=> {categoriesEdit(e,categoriesArr); editInput(e,categoriesArr) }}>{'EDIT'}</button>}
-      {el.statusInput ? <button id={el.id} onClick={(e)=> {categoriesCancel(e,categoriesArr)}}>{'CANCEL'}</button>: <button onClick={(e)=> {categoriesDelete(e,categoriesArr)}} id={el.id}>{'DELETE'}</button>}
+      {el.statusInput ? <input className='list_item_input' type='text' name='title' onChange={changeCategory}  value={editCategory}/> : <p className='list_item_title'>{el.title}</p>}
+      {el.statusInput ? <button className='btn_style'  id={el.id} onClick={(e)=> {categoriesSave(e,categoriesArr,editCategory)}}>{'SAVE'}</button>: <button className='btn_style' id={el.id} onClick={(e)=> {categoriesEdit(e,categoriesArr); editInput(e,categoriesArr) }}>{'EDIT'}</button>}
+      {el.statusInput ? <button className='btn_style'  id={el.id} onClick={(e)=> {categoriesCancel(e,categoriesArr)}}>{'CANCEL'}</button>: <button className='btn_style' onClick={(e)=> {categoriesDelete(e,categoriesArr)}} id={el.id}>{'DELETE'}</button>}
 
       
     

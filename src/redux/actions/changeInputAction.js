@@ -18,6 +18,12 @@ export const categories = (e) => ({
   value: e.target.value,
 })
 
+export const editModal = (e,historyArr) => ({
+  type: 'EDITMODAL',
+  id: e.target.id,
+  data: historyArr,
+})
+
 export const clear =(change) => ({
   type: 'CLEAR',
   value: change,

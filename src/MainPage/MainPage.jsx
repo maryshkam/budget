@@ -3,10 +3,12 @@ import {Switch, Route} from 'react-router-dom';
 import Header from '../Header/Header';
 import Account from '../Account/Account';
 import Categories from '../Categories/Categories';
+import History from '../History/History';
+import {connect} from 'react-redux';
 import './MainPage.css';
 
 
-const MainPage = () => {
+const MainPage = ({flag}) => {
   return (
     <div >
       <Header/>
@@ -15,13 +17,19 @@ const MainPage = () => {
         <Route exact path='/' component={Account}/>
         <Route path='/accounts' component={Account}/>
         <Route path='/categories' component={Categories}/>
-        {/* <Route path='/statistic' component={Account}/> */}
+        <Route path='/history' component={History}/>
 
       </Switch> 
-      <div className="main_page">
-      </div>
+      
     </div>
   );
 };
 
-export default MainPage;
+function mapStateToProps (state) {
+  return {
+    flag: state.showModal,
+    
+  }
+}
+
+export default connect(mapStateToProps) (MainPage);

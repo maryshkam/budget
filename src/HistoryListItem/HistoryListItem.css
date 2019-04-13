@@ -1,0 +1,29 @@
+.History_item {
+  display: flex;
+  width: 100%;
+  padding: 0 0.5rem 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+  margin-bottom: 1rem;
+}
+
+.history_item_name {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+  /* padding: 0 2rem; */
+  
+}
+
+.btn_style_mod {
+  border: 1px solid rgb(103, 189, 129);
+  width: 10%;
+  height: 2rem;
+  border-radius: 7rem;
+  font-size: 1rem;
+  /* margin: auto; */
+  padding: 0.3rem;
+  /* align-items: center; */
+  cursor: pointer;
+}

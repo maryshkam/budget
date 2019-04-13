@@ -14,6 +14,11 @@ function change (state = {
     case "CATEGORIES": 
       return {...state, categories: action.value};
     
+    case "EDITMODAL":
+      let result = action.data.find(el => el.id === action.id);
+      console.log(result);
+      return result;
+
     case "CLEAR":
       return {
         summ: '',

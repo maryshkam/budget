@@ -7,6 +7,8 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import {connect} from 'react-redux';
 import {showModal} from '../redux/actions/showModal';
 
+
+
 const Account = ({show, flag, totalSumm}) => {
   
   return (
@@ -23,9 +25,13 @@ const Account = ({show, flag, totalSumm}) => {
       </div>
       
     </div>
+   
     <img className='arrow_right' src={arrowRight} alt="arrow"/>
     </div>
     {flag ? <ModalWindow/> : null}
+    <div className="img_page"></div>
+    
+      
     </div>
   );
 };
@@ -34,7 +40,7 @@ function mapStateToProps (state) {
   return {
     flag: state.showModal,
     totalSumm: state.totalSumm,
-    
+    // historyArr: state.historyArr,
   }
 }
 

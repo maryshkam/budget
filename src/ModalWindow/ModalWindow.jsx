@@ -15,29 +15,26 @@ import {minus} from '../redux/actions/totalSummAction';
 
 import './ModalWindow.css';
 
-const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, statusDebet, statusCredit, statusCancel, saveToHistory, statusMoney, plus, minus}) => {
+const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, statusDebet, statusCredit, statusCancel, saveToHistory, statusMoney, statusButton, plus, minus, historyArr}) => {
   return (
     <div className='modal'>
     <div className="modal_header">
     <label ><input className='label_radiobutton' type="radio"  name="budget" id="" value='Доходи'onClick={statusDebet}/>ДОХОДИ</label>
     <label ><input className='label_radiobutton' type="radio"  name="budget" id="" value='Видатки' onClick={statusCredit}/>ВИДАТКИ</label>
     
-    
-      
       </div>
       <form className='form_wrapper'>
-      <label >Сума <input type="text" onChange={summ}/></label>
-      <label >Дата <input type="date" onChange={date}/></label>
-      <label >Опис <textarea  type="text" onChange={desc}/></label>
-      <label >Категорія <input type="text" onChange={categories}/></label>
+      <label className='label_wrapper'>Сума <input type="number" onChange={summ} name='summ' value={change.summ} className='label_input'/></label>
+      <label className='label_wrapper' >Дата <input type="date" onChange={date}  value={change.date}className='label_input'/></label>
+      <label className='label_wrapper' >Опис <textarea  type="text" onChange={desc} value={change.description} className='label_input'/></label>
+      <label className='label_wrapper' >Категорія <input type="text" onChange={categories} value={change.categories} className='label_input'/></label>
       <div className="button_nav">
 
-{statusMoney ? <input onClick={(e)=> {saveToHistory(change,statusMoney); plus(change); cancel(); clear(change); statusCancel()}} type="button" value="save"/>
-: <input onClick={(e)=> {saveToHistory(change,statusMoney); minus(change); cancel(); clear(change); statusCancel()}} type="button" value="save"/>
+{statusMoney ? <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney); plus(change); cancel(); clear(change); statusCancel()}} type="button">SAVE</button>
+: <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr); minus(change); cancel(); clear(change); statusCancel()}} type="button" >SAVE</button>
 }
 
-{/* <input onClick={(e)=> {saveToHistory(change,statusMoney); plus(change); cancel(); clear(change); statusCancel()}} type="button" value="save"/> */}
-<input onClick={(e)=> {cancel(); clear(change); statusCancel()}}type="button" value="cancel" />
+<button className='btn_form' onClick={(e)=> {cancel(); clear(change); statusCancel()}}type="button" >CANCEL</button>
 </div>
       </form>
     </div>
@@ -49,7 +46,9 @@ function mapStateToProps (state) {
     flag: state.showModal,
     change: state.change,
     statusMoney: state.statusMoney,
-    // historyArr: state.historyArr,
+    statusButton: state.statusButton,
+    historyArr: state.historyArr,
+    
     
   }
 }
@@ -84,8 +83,8 @@ return {
   statusCancel: function() {
     dispatch(statusCancel())
   },
-  saveToHistory: function(change,statusMoney){
-    dispatch(saveToHistory(change,statusMoney))
+  saveToHistory: function(change,statusMoney, statusButton, historyArr){
+    dispatch(saveToHistory(change,statusMoney, statusButton, historyArr))
   },
   plus: function(change) {
     dispatch(plus(change))

@@ -6,7 +6,7 @@ function editCategory (state='', action) {
     const input = action.data.find(el=> el.id === action.id).title;
       return input;
       case 'CHANGECATEGORY':
-      let newInput = action.value;
+    let newInput = action.value;
       return newInput ;
       
   

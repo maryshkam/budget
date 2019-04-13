@@ -2,11 +2,33 @@
   display: flex;
  flex-basis: 100%;
   justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+
 }
 
 .list_item_title {
   display: flex;
-  width: 80%;
+  width: 65%;
+}
+
+.list_item_input {
+  display: flex;
+  width: 63%;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.btn_style {
+  border: 1px solid rgb(103, 189, 129);
+  width: 15%;
+  height: 2rem;
+  border-radius: 7rem;
+  font-size: 1rem;
+  /* margin: auto; */
+  padding: 0.3rem;
+  /* align-items: center; */
+  cursor: pointer;
 }
 
 

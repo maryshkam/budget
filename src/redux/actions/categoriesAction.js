@@ -1,9 +1,13 @@
-import editCategory from "../reducers/editCategoryReducer";
+
 
 export const categoriesAdd = (change) => ({
   type: "ADD",
   // value: e.target.value,
   title: change,
+})
+
+export const storageCategory = () => ({
+  type: "storageCategory",
 })
 
 export const categoriesEdit = (e,categoriesArr) => ({

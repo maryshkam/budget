@@ -22,10 +22,11 @@
 }
 
 .btn_save {
-  display: flex;
-  background-color: #999;
-  /* color: red; */
+  border: 1px solid rgb(103, 189, 129);
+  width: 17%;
+  border-radius: 7rem;
   font-size: 1rem;
+  /* margin: auto; */
   padding: 0.3rem;
   /* align-items: center; */
   cursor: pointer;

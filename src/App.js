@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {first} from './redux/actions/firstAction';
 import {connect} from 'react-redux';
+import {storage} from './redux/actions/historyAction';
+import {storageCategory} from './redux/actions/categoriesAction';
 // import logo from './logo.svg';
 import './App.css';
 // import Account from './Account/Account';
@@ -9,8 +11,12 @@ import MainPage from './MainPage/MainPage';
 
 
 class App extends Component {
+  componentDidMount () {
+    this.props.storage();
+    this.props.storageCategory()
+  }
   render() {
-    // let {add} = this.props;
+    
     return (
       <div>
         <MainPage/>
@@ -24,7 +30,7 @@ class App extends Component {
 
 function mapStateToProps (state) {
   return {
-    value: state.first,
+    historyArr: state.historyArr,
     
   }
 }
@@ -32,9 +38,12 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
 return {
-  add: function() {
-    dispatch(first(5))
+  storage: function() {
+    dispatch(storage())
   },
+  storageCategory: function(){
+    dispatch(storageCategory())
+  }
 }
 }
 

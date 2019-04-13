@@ -13,7 +13,7 @@ const Categories = ({categories, add, change, clear}) => {
     <div className="categories_form_wrapper">
       <form className='categoties_form' onSubmit={(e) => {add(e,change.categories); clear(change)}}>
         <input type="text" placeholder='input categories' className='categories_name' onChange={categories} value={change.categories}/>
-        <input type="submit" value="Зберегти" className='btn_save'/>
+        <input type="submit" value="SAVE" className='btn_save'/>
       </form>
       </div>
       <div className="gategories_list">
