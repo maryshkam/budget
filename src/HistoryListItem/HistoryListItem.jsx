@@ -13,7 +13,7 @@ import './HistoryListItem.css';
 
 const HistoryListItem = ({el,flag, showModal, editModal,historyArr, deleteFromHistory, editButton}) => {
   return (
-    <div className='History_item'>
+    <div className={el.statusMoney ? 'History_item_green' : 'History_item_red'}>
       <p className='history_item_name'>{el.date}</p>
       <p className='history_item_name'>{el.summ}</p>
       <p className='history_item_name'>{el.categories}</p>

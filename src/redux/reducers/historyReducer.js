@@ -20,6 +20,8 @@ function historyArr (state=[], action) {
     // console.log(action.id);
     // console.log(action.data);
     let result = action.data.filter(el=>el.id !== action.id);
+    localStorage.setItem('budget', JSON.stringify(result));
+
     return result;
     default:
       return state;

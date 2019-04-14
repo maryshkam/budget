@@ -9,7 +9,7 @@ import {showModal} from '../redux/actions/showModal';
 
 
 
-const Account = ({show, flag, totalSumm}) => {
+const Account = ({show, flag, totalSumm, total}) => {
   
   return (
     <div>
@@ -17,9 +17,9 @@ const Account = ({show, flag, totalSumm}) => {
     <div className='wallet_wrapper'>
       <img className='wallet_img'  src={wallet} alt="wallet"/>
       <div className='wallet_box'>
-      <p className='account_name'>Гаманець</p>
+      <p className='account_name'>Wallet</p>
       <div className="summ">
-      <p onClick={show} className='account_summ'>{totalSumm}</p>
+      <p onClick={show} className='account_summ'>{total}</p>
       <p className='currency_name'>грн</p>
       </div>
       </div>
@@ -38,9 +38,10 @@ const Account = ({show, flag, totalSumm}) => {
 
 function mapStateToProps (state) {
   return {
+    historyArr: state.historyArr,
     flag: state.showModal,
-    totalSumm: state.totalSumm,
-    // historyArr: state.historyArr,
+    // totalSumm: state.totalSumm,
+    total: state.historyArr.reduce((acc,obj) => {return obj.statusMoney ? acc+Number(obj.summ) : acc-Number(obj.summ)}, 0),
   }
 }
 

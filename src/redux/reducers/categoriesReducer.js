@@ -22,6 +22,7 @@ function categoriesArr (state=[], action) {
       }  
       
       let result = action.data.map(el=> el.id === action.id ? {...el, statusInput: true} : el );
+      localStorage.setItem('categories',JSON.stringify(result));
       return result;
     
       
@@ -32,10 +33,12 @@ function categoriesArr (state=[], action) {
 
       case 'DELETE':
         let rest = action.data.filter(el=> el.id !== action.id);
+        localStorage.setItem('categories',JSON.stringify(rest));
         return rest;
 
         case 'SAVE':
         let saveCategory = action.data.map(el=> el.id === action.id ? {...el, statusInput: false, title: action.title} : el )
+        localStorage.setItem('categories',JSON.stringify(saveCategory));
         return saveCategory;
 
         
