@@ -6,7 +6,7 @@ import CategoriesListItem from '../CategoriesListItem/CategoriesListItem';
 const CategoriesList = ({categoriesArr}) => {
   return (
     <div className='list'>
-      <h3 className='list_name'>Перелік категорій:</h3>
+      <h3 className='list_name'>List of categories:</h3>
       <ul className='list_box'>
 {categoriesArr.length !== 0 ? categoriesArr.map((el)=> <CategoriesListItem el={el} key={el.title}/>) : null }
 

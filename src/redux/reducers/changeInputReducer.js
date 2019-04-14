@@ -3,6 +3,7 @@ function change (state = {
   date: '',
   description: '',
   categories: '',
+  // select: null,
 }, action) {
   switch (action.type) {
     case "SUMM": 
@@ -13,7 +14,8 @@ function change (state = {
       return {...state, description: action.value};
     case "CATEGORIES": 
       return {...state, categories: action.value};
-    
+    // case 'select':
+    //   return {...state, categories: action.data}
     case "EDITMODAL":
       let result = action.data.find(el => el.id === action.id);
       console.log(result);
@@ -25,6 +27,7 @@ function change (state = {
         date: '',
         description: '',
         categories: '',
+        // select: null,
       };
     
     default:

@@ -18,6 +18,11 @@ export const categories = (e) => ({
   value: e.target.value,
 })
 
+// export const selectedCategory = (selectedOption) => ({
+//   type: 'select',
+//   data: selectedOption,
+// })
+
 export const editModal = (e,historyArr) => ({
   type: 'EDITMODAL',
   id: e.target.id,

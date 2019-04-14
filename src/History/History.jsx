@@ -6,11 +6,17 @@ import {showModal} from '../redux/actions/showModal';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import './History.css';
 
-const History = ({flag,show}) => {
+const History = ({flag,show, total}) => {
   return (
     <div>
+      <div className="history_operation">
+      <div className="balance">
+      <p>Balance:</p>
+      <p>{total}</p>
+      <p>&#8372;</p>
+      </div>
       <p onClick={show} className='newOperation'>+</p>
-   
+      </div>
     <div className='history_wrapper'>
     
       {/* <p className='history_name'>Історія операцій </p> */}
@@ -27,7 +33,8 @@ const History = ({flag,show}) => {
 function mapStateToProps (state) {
   return {
     flag: state.showModal,
-    // totalSumm: state.totalSumm,
+    total: state.historyArr.reduce((acc,obj) => {return obj.statusMoney ? acc+Number(obj.summ) : acc-Number(obj.summ)}, 0),
+
     // historyArr: state.historyArr,
   }
 }

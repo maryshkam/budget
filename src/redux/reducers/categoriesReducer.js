@@ -3,7 +3,7 @@ import uuid from 'uuid/v4';
 function categoriesArr (state=[], action) {
   switch (action.type) {
     case 'ADD':
-      const newCategories = {title:action.title, id: uuid(), statusInput: false}
+      const newCategories = {value:action.title, label:action.title,  id: uuid(), statusInput: false}
       // console.log(newCategories.id);
       localStorage.setItem('categories',JSON.stringify([...state, newCategories]))
       return [...state, newCategories];
@@ -37,7 +37,7 @@ function categoriesArr (state=[], action) {
         return rest;
 
         case 'SAVE':
-        let saveCategory = action.data.map(el=> el.id === action.id ? {...el, statusInput: false, title: action.title} : el )
+        let saveCategory = action.data.map(el=> el.id === action.id ? {...el, statusInput: false, value: action.title, label: action.title} : el )
         localStorage.setItem('categories',JSON.stringify(saveCategory));
         return saveCategory;
 

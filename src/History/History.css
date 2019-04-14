@@ -7,6 +7,20 @@
 
 }
 
+.history_operation {
+  display: flex;
+  flex-basis: 70%;
+  margin: auto;
+  padding: 0 10rem;
+  justify-content: flex-start;
+}
+
+.balance {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
 .history_name {
   /* display: flex; */
   /* width: 100%; */
@@ -33,6 +47,7 @@
   padding-bottom: .1rem;
   border-radius: 15px;
   position: absolute;
+  top: 25%;
   right: 3%;
   cursor: pointer;
   /* padding-bottom: 0 0 0.3rem 0; */

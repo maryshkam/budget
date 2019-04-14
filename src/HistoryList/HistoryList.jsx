@@ -8,12 +8,12 @@ import './HistoryList.css';
 const HistoryList = ({historyArr}) => {
   return (
     <div className='History_list'>
-      <h3 className='History_title'>Історія операцій:</h3>
+      <h3 className='History_title'>History operations:</h3>
       <div className="history_label">
-      <p className='history_list_item_name'>Дата</p>
-      <p className='history_list_item_name'>сума</p>
-      <p className='history_list_item_name'>категорія</p>
-      <p className='history_list_item_name'>опис</p> 
+      <p className='history_list_item_name'>Date</p>
+      <p className='history_list_item_name'>Sum</p>
+      <p className='history_list_item_name'>Category</p>
+      <p className='history_list_item_name'>Description</p> 
       {/* <p className='history_list_item_name'></p> */}
       </div>
       <ul className='history_list'>
