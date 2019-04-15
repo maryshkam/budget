@@ -12,12 +12,13 @@ import {statusCredit} from '../redux/actions/statusMoneyAction';
 import {statusCancel} from '../redux/actions/statusMoneyAction';
 import {saveToHistory} from '../redux/actions/historyAction';
 import {selectedCategory} from '../redux/actions/selectAction';
+import {clearSelect} from '../redux/actions/selectAction';
 // import {plus} from '../redux/actions/totalSummAction';
 // import {minus} from '../redux/actions/totalSummAction';
 
 import './ModalWindow.css';
 
-const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, statusDebet, statusCredit, statusCancel, saveToHistory, statusMoney, statusButton, historyArr, selectedOption, selectedCategory, categoriesArr, selectcategory}) => {
+const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, statusDebet, statusCredit, statusCancel, saveToHistory, statusMoney, statusButton, historyArr, selectedOption, selectedCategory, categoriesArr, clearSelect}) => {
   return (
     <div className='modal'>
     <div className="modal_header">
@@ -40,8 +41,8 @@ const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, status
       {/* <label className='label_wrapper' >Category<input type="text" onChange={categories} name='category' value={change.categories} className='label_input'/></label> */}
       <div className="button_nav">
 
-{statusMoney ? <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,selectedOption);  cancel(); clear(change); statusCancel()}} type="button">SAVE</button>
-: <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr,selectedOption);  cancel(); clear(change); statusCancel()}} type="button" >SAVE</button>
+{statusMoney ? <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr, selectedOption);  cancel(); clear(change); clearSelect(); statusCancel()}} type="button">SAVE</button>
+: <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr,selectedOption);  cancel(); clear(change); clearSelect(); statusCancel()}} type="button" >SAVE</button>
 }
 
 <button className='btn_form' onClick={(e)=> {cancel(); clear(change); statusCancel()}}type="button" >CANCEL</button>
@@ -100,6 +101,9 @@ return {
   },
   selectedCategory: function(selectedOption){
     dispatch(selectedCategory(selectedOption))
+  },
+  clearSelect: function() {
+    dispatch(clearSelect())
   }
   // plus: function(change) {
   //   dispatch(plus(change))

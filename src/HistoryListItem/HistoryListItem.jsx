@@ -6,19 +6,20 @@ import {editModal} from '../redux/actions/changeInputAction';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import {deleteFromHistory} from '../redux/actions/historyAction';
 import {editButton} from '../redux/actions/statusButtonAction';
-
+// export {changeSelect} from '../redux/actions/selectAction';
+import {changeSelect} from '../redux/actions/selectAction';
 
 
 import './HistoryListItem.css';
 
-const HistoryListItem = ({el,flag, showModal, editModal,historyArr, deleteFromHistory, editButton}) => {
+const HistoryListItem = ({el,flag, showModal, editModal,historyArr, deleteFromHistory, editButton, changeSelect }) => {
   return (
     <div className={el.statusMoney ? 'History_item_green' : 'History_item_red'}>
       <p className='history_item_name'>{el.date}</p>
       <p className='history_item_name'>{el.summ}</p>
       <p className='history_item_name'>{el.select}</p>
       <p className='history_item_name'>{el.description}</p>
-      <button className='btn_style_mod' onClick={(e)=> { editModal(e,historyArr); editButton(); showModal()}} id={el.id}>edit</button>
+      <button className='btn_style_mod' onClick={(e)=> { editModal(e,historyArr); changeSelect(e, historyArr); editButton(); showModal()}} id={el.id}>edit</button>
       <button className='btn_style_mod' onClick={(e)=> {deleteFromHistory(e,historyArr)}} id={el.id}>delete</button>
       {/* <div className="nav_img">
       
@@ -51,6 +52,9 @@ function mapDispatchToProps (dispatch) {
     },
     editButton: function() {
       dispatch(editButton())
+    },
+    changeSelect: function(e, historyArr) {
+      dispatch(changeSelect(e, historyArr))
     }
 
   
