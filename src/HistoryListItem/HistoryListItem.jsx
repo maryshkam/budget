@@ -16,7 +16,7 @@ const HistoryListItem = ({el,flag, showModal, editModal,historyArr, deleteFromHi
     <div className={el.statusMoney ? 'History_item_green' : 'History_item_red'}>
       <p className='history_item_name'>{el.date}</p>
       <p className='history_item_name'>{el.summ}</p>
-      <p className='history_item_name'>{el.categories}</p>
+      <p className='history_item_name'>{el.select}</p>
       <p className='history_item_name'>{el.description}</p>
       <button className='btn_style_mod' onClick={(e)=> { editModal(e,historyArr); editButton(); showModal()}} id={el.id}>edit</button>
       <button className='btn_style_mod' onClick={(e)=> {deleteFromHistory(e,historyArr)}} id={el.id}>delete</button>

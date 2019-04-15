@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Account from '../Account/Account';
 import Categories from '../Categories/Categories';
 import History from '../History/History';
+import Report from '../Report/Report';
 import {connect} from 'react-redux';
 import './MainPage.css';
 
@@ -18,6 +19,7 @@ const MainPage = ({flag}) => {
         <Route path='/accounts' component={Account}/>
         <Route path='/categories' component={Categories}/>
         <Route path='/history' component={History}/>
+        <Route path='/report' component={Report}/>
 
       </Switch> 
       

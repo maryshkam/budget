@@ -32,7 +32,7 @@ const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, status
       <label className='label_wrapper' >Category</label>
      <Select
      value={selectedOption}
-     onChange={selectedCategory(selectedOption)}
+     onChange={selectedCategory}
      options={categoriesArr}
      />
      
@@ -40,8 +40,8 @@ const ModalWindow = ({cancel, clear, summ, date, desc, categories,change, status
       {/* <label className='label_wrapper' >Category<input type="text" onChange={categories} name='category' value={change.categories} className='label_input'/></label> */}
       <div className="button_nav">
 
-{statusMoney ? <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney);  cancel(); clear(change); statusCancel()}} type="button">SAVE</button>
-: <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr);  cancel(); clear(change); statusCancel()}} type="button" >SAVE</button>
+{statusMoney ? <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,selectedOption);  cancel(); clear(change); statusCancel()}} type="button">SAVE</button>
+: <button className='btn_form' onClick={(e)=> {saveToHistory(change,statusMoney,statusButton, historyArr,selectedOption);  cancel(); clear(change); statusCancel()}} type="button" >SAVE</button>
 }
 
 <button className='btn_form' onClick={(e)=> {cancel(); clear(change); statusCancel()}}type="button" >CANCEL</button>
@@ -95,8 +95,8 @@ return {
   statusCancel: function() {
     dispatch(statusCancel())
   },
-  saveToHistory: function(change,statusMoney, statusButton, historyArr){
-    dispatch(saveToHistory(change,statusMoney, statusButton, historyArr))
+  saveToHistory: function(change,statusMoney, statusButton, historyArr,selectedOption){
+    dispatch(saveToHistory(change,statusMoney, statusButton, historyArr,selectedOption))
   },
   selectedCategory: function(selectedOption){
     dispatch(selectedCategory(selectedOption))

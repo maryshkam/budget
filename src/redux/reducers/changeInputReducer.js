@@ -3,7 +3,7 @@ function change (state = {
   date: '',
   description: '',
   categories: '',
-  // select: null,
+  select: '',
 }, action) {
   switch (action.type) {
     case "SUMM": 
@@ -27,7 +27,7 @@ function change (state = {
         date: '',
         description: '',
         categories: '',
-        // select: null,
+        select: '',
       };
     
     default:

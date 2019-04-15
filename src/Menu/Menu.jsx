@@ -10,7 +10,7 @@ const Menu = ({close}) => {
     <NavLink onClick={close} className='menu-item' to='/accounts'>Accounts</NavLink>
     <NavLink onClick={close} className='menu-item' to='/categories'>Categories</NavLink>
     <NavLink onClick={close} className='menu-item' to='history'>History</NavLink>
-      
+    <NavLink onClick={close} className='menu-item' to='report'>Report</NavLink>
     </div>
   );
 };

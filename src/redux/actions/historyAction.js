@@ -1,9 +1,10 @@
-export const saveToHistory = (change, statusMoney, statusButton,historyArr) => ({
+export const saveToHistory = (change, statusMoney, statusButton,historyArr,selectedOption) => ({
   type: 'saveToHistory',
   value: change,
   statusMoney: statusMoney,
   status: statusButton,
   data: historyArr,
+  select: selectedOption,
 })
 
 export const storage = () => ({

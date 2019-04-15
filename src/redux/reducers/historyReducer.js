@@ -3,7 +3,8 @@ import uuid from 'uuid/v4';
 function historyArr (state=[], action) {
   switch (action.type) {
     case 'saveToHistory':
-      const newRecord ={...action.value, id: uuid(), statusMoney: action.statusMoney};
+    console.log(action.select.value);
+      const newRecord ={...action.value, id: uuid(), select: action.select.value, statusMoney: action.statusMoney};
 
       localStorage.setItem('budget', JSON.stringify(action.status ? action.data.map(el=> el.id === action.value.id  ? action.value: el) : [...state,newRecord]))
       

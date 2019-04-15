@@ -2,7 +2,7 @@ function selectedOption (state=null, action) {
  switch (action.type) {
    case 'select':
 
-     console.log(selectedOption);
+     console.log(action.data);
      return action.data;
  
    default:
