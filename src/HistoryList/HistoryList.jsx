@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import HistoryListItem from '../HistoryListItem/HistoryListItem';
 import './HistoryList.css';
 
@@ -27,7 +28,6 @@ const HistoryList = ({historyArr}) => {
 
 function mapStateToProps (state) {
   return {
-    // flag: state.showModal,
     change: state.change,
     categoriesArr: state.categoriesArr,
     historyArr: state.historyArr,
@@ -37,18 +37,36 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
 return {
-  
-  
-  // categories: function(e) {
-  //   dispatch(categories(e))
-  // },
+}
+}
 
-  // add: function(e, change) {
-  //   e.preventDefault();
-  //   dispatch(categoriesAdd(change))
-  // },
-  
-}
-}
+HistoryList.propTypes = {
+  change: PropTypes.shape({
+    summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+  }),
+  categoriesArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      statusInput: PropTypes.bool
+    })
+  ),
+  historyArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+      select: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statusMoney: PropTypes.bool.isRequired
+    })
+  )
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps) (HistoryList);

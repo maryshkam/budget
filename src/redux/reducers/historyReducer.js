@@ -10,7 +10,7 @@ function historyArr (state=[], action) {
       
       // return action.status ? state.map(el=> el.id === action.value.id ? action.value : el) : [...state, newContact]
       
-    return action.status ? action.data.map(el=> el.id === action.value.id  ? action.value: el) : [...state,newRecord];
+    return action.status ? action.data.map(el=> el.id === action.value.id  ? {...action.value, select: action.select.value, statusMoney: action.statusMoney} : el) : [...state,newRecord];
 
     case "STORAGE":
     let historyBase = JSON.parse(localStorage.getItem('budget'));

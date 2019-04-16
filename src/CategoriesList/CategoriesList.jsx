@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import './CategoriesList.css';
 import CategoriesListItem from '../CategoriesListItem/CategoriesListItem';
 
@@ -8,7 +9,7 @@ const CategoriesList = ({categoriesArr}) => {
     <div className='list'>
       <h3 className='list_name'>List of categories:</h3>
       <ul className='list_box'>
-{categoriesArr.length !== 0 ? categoriesArr.map((el)=> <CategoriesListItem el={el} key={el.title}/>) : null }
+{categoriesArr.length !== 0 ? categoriesArr.map((el)=> <CategoriesListItem el={el} key={el.id}/>) : null }
 
       </ul>
     </div>
@@ -17,8 +18,6 @@ const CategoriesList = ({categoriesArr}) => {
 
 function mapStateToProps (state) {
   return {
-    // flag: state.showModal,
-    change: state.change,
     categoriesArr: state.categoriesArr,
   }
 }
@@ -26,18 +25,23 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
 return {
-  
-  
-  // categories: function(e) {
-  //   dispatch(categories(e))
-  // },
+}
+}
 
-  // add: function(e, change) {
-  //   e.preventDefault();
-  //   dispatch(categoriesAdd(change))
-  // },
+CategoriesList.propTypes = {
   
-}
-}
+  
+  
+  categoriesArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      statusInput: PropTypes.bool
+    })
+  )
+
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps) (CategoriesList);

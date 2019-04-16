@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {saveButton} from '../redux/actions/statusButtonAction';
 import {cancelButton} from '../redux/actions/statusButtonAction';
 import {editButton} from '../redux/actions/statusButtonAction';
@@ -36,7 +37,6 @@ const CategoriesListItem = ({el,change, categories, status, editButton, saveButt
 
 function mapStateToProps (state) {
   return {
-    // flag: state.showModal,
     change: state.change,
     categoriesArr: state.categoriesArr,
     status: state.statusButton,
@@ -85,13 +85,45 @@ return {
   categoriesCancel: function(e,categoriesArr) {
     dispatch(categoriesCancel(e,categoriesArr))
   }
-
-  // add: function(e, change) {
-  //   e.preventDefault();
-  //   dispatch(categoriesAdd(change))
-  // },
   
 }
 }
+
+CategoriesListItem.propTypes = {
+  change: PropTypes.shape({
+    summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+  }),
+  categoriesArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      statusInput: PropTypes.bool
+    }),
+  ),
+  status: PropTypes.bool,
+  el: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    statusInput: PropTypes.bool
+  }),
+  editCategory: PropTypes.string.isRequired,
+  categories: PropTypes.func,
+  editButton: PropTypes.func,
+  saveButton: PropTypes.func,
+  cancelButton: PropTypes.func,
+  deleteButton: PropTypes.func,
+  editInput: PropTypes.func,
+  categoriesEdit: PropTypes.func,
+  changeCategory: PropTypes.func,
+  categoriesDelete: PropTypes.func,
+  categoriesSave: PropTypes.func,
+  categoriesCancel: PropTypes.func,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps) (CategoriesListItem);

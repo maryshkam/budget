@@ -2,6 +2,7 @@ import React from 'react';
 import './Menu.css';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {close} from '../redux/actions/showModal';
 
 const Menu = ({close}) => {
@@ -30,5 +31,10 @@ function mapDispatchToProps (dispatch) {
  
   }
   }
+
+  Menu.propTypes = {
+   close: PropTypes.func,
+  };
+  
 
 export default connect(mapStateToProps, mapDispatchToProps) (Menu);

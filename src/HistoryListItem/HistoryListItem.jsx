@@ -56,18 +56,30 @@ function mapDispatchToProps (dispatch) {
     changeSelect: function(e, historyArr) {
       dispatch(changeSelect(e, historyArr))
     }
-
-  
-    // add: function(e, change) {
-    //   e.preventDefault();
-    //   dispatch(categoriesAdd(change))
-    // },
     
   }
   }
 
 HistoryListItem.propTypes = {
   
+  flag: PropTypes.bool,
+  historyArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+      select: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statusMoney: PropTypes.bool.isRequired
+    })
+  ),
+  statusButton: PropTypes.bool,
+  showModal: PropTypes.func,
+  editModal: PropTypes.func,
+  deleteFromHistory: PropTypes.func,
+  editButton: PropTypes.func,
+  changeSelect: PropTypes.func,
 };
 
 export default connect (mapStateToProps, mapDispatchToProps) (HistoryListItem);

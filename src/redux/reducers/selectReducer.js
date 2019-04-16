@@ -11,7 +11,9 @@ function selectedOption (state=null, action) {
   case 'changeSelect':
   const change = action.data.find(el=> el.id === action.id);
   console.log(change);
-return {value: change.title, label: change.title};
+  const obj = {value: change.select, label: change.select};
+  console.log(obj);
+return obj;
  
    default:
      return state;

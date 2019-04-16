@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {first} from './redux/actions/firstAction';
+// import {first} from './redux/actions/firstAction';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {storage} from './redux/actions/historyAction';
 import {storageCategory} from './redux/actions/categoriesAction';
 // import logo from './logo.svg';
@@ -46,6 +47,22 @@ return {
   }
 }
 }
+
+App.propTypes = {
+  historyArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+      select: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statusMoney: PropTypes.bool.isRequired
+    })
+  ),
+  storage: PropTypes.func,
+  storageCategory: PropTypes.func,
+};
 
 
 

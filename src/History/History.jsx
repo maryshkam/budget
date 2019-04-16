@@ -51,7 +51,9 @@ return {
 
 
 History.propTypes = {
-  
+  show: PropTypes.func,
+  flag: PropTypes.bool,
+  total: PropTypes.number,
 };
 
 export default connect(mapStateToProps,mapDispatchToProps) (History);

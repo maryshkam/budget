@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Account.css';
 import wallet from './wallet.png';
 // import arrowRight from './arrow-right.png';
-// import showModal from '../redux/reducers/showModalReducer';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import {connect} from 'react-redux';
 import {showModal} from '../redux/actions/showModal';
@@ -52,5 +53,22 @@ return {
   },
 }
 }
+
+Account.propTypes = {
+  show: PropTypes.func,
+  flag: PropTypes.bool,
+  total: PropTypes.number,
+  historyArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+      select: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statusMoney: PropTypes.bool.isRequired
+    })
+  )
+};
 
 export default connect(mapStateToProps,mapDispatchToProps) (Account);

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {categories} from '../redux/actions/changeInputAction';
 import {clear} from '../redux/actions/changeInputAction';
 import {categoriesAdd} from '../redux/actions/categoriesAction';
@@ -25,7 +26,6 @@ const Categories = ({categories, add, change, clear}) => {
 
 function mapStateToProps (state) {
   return {
-    // flag: state.showModal,
     change: state.change,
     
   }
@@ -51,6 +51,19 @@ return {
   
 }
 }
+
+Categories.propTypes = {
+  categories: PropTypes.func,
+  add: PropTypes.func,
+  clear: PropTypes.func,
+  change: PropTypes.shape({
+    summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+  })
+};
+
 
 
 export default connect(mapStateToProps,mapDispatchToProps) (Categories);

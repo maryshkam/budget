@@ -5,11 +5,10 @@ import Account from '../Account/Account';
 import Categories from '../Categories/Categories';
 import History from '../History/History';
 import Report from '../Report/Report';
-import {connect} from 'react-redux';
 import './MainPage.css';
 
 
-const MainPage = ({flag}) => {
+const MainPage = () => {
   return (
     <div >
       <Header/>
@@ -27,11 +26,11 @@ const MainPage = ({flag}) => {
   );
 };
 
-function mapStateToProps (state) {
-  return {
-    flag: state.showModal,
+// function mapStateToProps (state) {
+//   return {
+//     flag: state.showModal,
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps) (MainPage);
+export default MainPage;

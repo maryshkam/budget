@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {cancel} from '../redux/actions/showModal';
 import {summ} from '../redux/actions/changeInputAction';
 import {date} from '../redux/actions/changeInputAction';
@@ -105,13 +106,45 @@ return {
   clearSelect: function() {
     dispatch(clearSelect())
   }
-  // plus: function(change) {
-  //   dispatch(plus(change))
-  // },
-  // minus: function(change) {
-  //   dispatch(minus(change))
-  // }
 }
 }
+
+ModalWindow.propTypes = {
+  flag: PropTypes.bool,
+  change: PropTypes.shape({
+    summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+  }),
+  statusMoney: PropTypes.bool.isRequired,
+  statusButton: PropTypes.bool.isRequired,
+  historyArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      summ: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      categories: PropTypes.string.isRequired,
+      select: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statusMoney: PropTypes.bool.isRequired
+    })
+  ),
+  categoriesArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      statusInput: PropTypes.bool
+    }),
+  ),
+  selectedOption: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      statusInput: PropTypes.bool
+  })
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps) (ModalWindow);
